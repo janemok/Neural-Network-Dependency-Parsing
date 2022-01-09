@@ -23,8 +23,6 @@ class Parser(object):
         state.stack.append(0)    
 
         while state.buffer: 
-            #pass
-            # TODO: Write the body of this loop for part 4 
             features = self.extractor.get_input_representation(words, pos, state).reshape(1,-1)
             possible_actions = self.model(features)[0]
             asc_sorted = np.argsort(possible_actions)[::-1]
